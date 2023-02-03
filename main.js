@@ -11,7 +11,7 @@ const subtract = function(numA,numB) {
 };
 
 const multiply = function(numA, numB) {
- let numC = numA - numB;
+ let numC = numA * numB;
  console.log(numC);
 };
 
@@ -21,10 +21,18 @@ const divide = function(numA,numB){
     console.log(numC);
 }
 
-add(10,20);
+const operate = function(stringA,numA,numB){
+  if(stringA === "+"){
+    add(numA,numB);
+  }else if(stringA === "-"){
+    subtract(numA,numB);
+  }else if(stringA === "*"){
+    multiply(numA,numB);
+  }else if(stringA==="/"){
+   divide(numA,numB);
+  }else{
+    console.log("please enter a valid operator")
+  }
+}
 
-subtract(50,70);
-
-multiply(5,10);
-
-divide(100,50);
+operate("*",25,50);
