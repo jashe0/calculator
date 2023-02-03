@@ -1,18 +1,49 @@
+let operator = '';
+let previousValue = '';
+let currentValue = '';
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    let clear = document.querySelector(".clear");
+    let equal = document.querySelector(".equal");
+    let decimal = document.querySelector(".decimal");
+
+    let numbers = document.querySelectorAll(".number");
+    let operators = document.querySelectorAll(".operator");
+
+    let previousScreen = document.querySelector(".previous");
+    let currentScreen = document.querySelector(".current");
+
+    numbers.forEach((number) => number.addEventListener("click",function(e){
+        handleNumber(e.target.textContent);
+        currentScreen.textContent = currentValue;
+    }))
+
+    
+
+})
+
+function handleNumber(num){
+    if(currentValue.length <= 5){
+    currentValue += num;
+    }
+}
+
 const add = function(numA,numB) {
-	let numC = numA + numB;
-  /**return numC;*/
-  console.log(numC);
+    let numC = numA + numB;
+/**return numC;*/
+console.log(numC);
 };
 
 const subtract = function(numA,numB) {
-  let numC = numA - numB;
-  /**return numC;	**/
-  console.log(numC);
+let numC = numA - numB;
+/**return numC;	**/
+console.log(numC);
 };
 
 const multiply = function(numA, numB) {
- let numC = numA * numB;
- console.log(numC);
+let numC = numA * numB;
+console.log(numC);
 };
 
 const divide = function(numA,numB){
@@ -22,17 +53,19 @@ const divide = function(numA,numB){
 }
 
 const operate = function(stringA,numA,numB){
-  if(stringA === "+"){
+if(stringA === "+"){
     add(numA,numB);
-  }else if(stringA === "-"){
+}else if(stringA === "-"){
     subtract(numA,numB);
-  }else if(stringA === "*"){
+}else if(stringA === "*"){
     multiply(numA,numB);
-  }else if(stringA==="/"){
-   divide(numA,numB);
-  }else{
+}else if(stringA==="/"){
+divide(numA,numB);
+}else{
     console.log("please enter a valid operator")
-  }
+}
 }
 
 operate("*",25,50);
+
+
