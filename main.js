@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
     equal.addEventListener("click", function(){
         calculate();
+        previousScreen.textContent = '';
+        currentScreen.textContent = previousValue;
     })
 
 })
@@ -65,21 +67,27 @@ function calculate(){
     }else {
         previousValue /= currentValue;
     }
-    console.log(previousValue);
+    previousValue = roundNumber(previousValue);  
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
+}
+
+function roundNumber(num){
+    return Math.round(num * 1000)/1000;
 }
 
 const operate = function(stringA,numA,numB){
-if(stringA === "+"){
-    add(numA,numB);
-}else if(stringA === "-"){
-    subtract(numA,numB);
-}else if(stringA === "*"){
-    multiply(numA,numB);
-}else if(stringA==="/"){
-divide(numA,numB);
-}else{
-    console.log("please enter a valid operator")
-}
+    if(stringA === "+"){
+        add(numA,numB);
+    }else if(stringA === "-"){
+        subtract(numA,numB);
+    }else if(stringA === "*"){
+        multiply(numA,numB);
+    }else if(stringA==="/"){
+        divide(numA,numB);
+    }else{
+        console.log("please enter a valid operator")
+    }
 }
 
 
