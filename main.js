@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded",function(){
         currentScreen.textContent = currentValue;
     })
 
+    equal.addEventListener("click", function(){
+        calculate();
+    })
+
 })
 
 function handleNumber(num){
@@ -47,27 +51,21 @@ function handleOperator(op){
     currentValue = '';
 }
 
-const add = function(numA,numB) {
-    let numC = numA + numB;
-/**return numC;*/
-console.log(numC);
-};
+function calculate(){
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
+    
 
-const subtract = function(numA,numB) {
-let numC = numA - numB;
-/**return numC;	**/
-console.log(numC);
-};
-
-const multiply = function(numA, numB) {
-let numC = numA * numB;
-console.log(numC);
-};
-
-const divide = function(numA,numB){
-    let numC = numA / numB;
-    /**return numC;**/
-    console.log(numC);
+    if(operator === "+"){
+        previousValue += currentValue;
+    }else if(operator === "-"){
+       previousValue -= currentValue;
+    }else if(operator === "x"){
+       previousValue *= currentValue;
+    }else {
+        previousValue /= currentValue;
+    }
+    console.log(previousValue);
 }
 
 const operate = function(stringA,numA,numB){
@@ -84,6 +82,5 @@ divide(numA,numB);
 }
 }
 
-operate("*",25,50);
 
 
